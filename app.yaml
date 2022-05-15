@@ -1,0 +1,87 @@
+#application: akcjegrahama
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /login
+  script: main.app
+  secure: always
+
+- url: /signup
+  script: main.app
+  secure: always
+
+- url: /v/.*
+  script: main.app
+  secure: always
+
+- url: /p/.*
+  script: main.app
+  secure: always
+
+- url: /password
+  script: main.app
+  secure: always
+  
+- url: /logout
+  script: main.app
+  secure: always
+  
+- url: /forgot
+  script: main.app
+  secure: always
+
+- url: /authenticated
+  script: main.app
+  secure: always  
+  
+
+
+- url: /favicon\.ico
+  static_files: static/icons/favicon.ico
+  upload: static/icons/favicon.ico
+  expiration: "90d"
+  
+- url: /update(.*)
+  script: update.application
+  login: admin
+
+- url: /static
+  static_dir: static 
+  
+- url: /javascript
+  static_dir: static/javascript
+  expiration: "90d"
+
+- url: /css
+  static_dir: static/css
+  expiration: "90d"
+ 
+- url: /icons
+  static_dir: static/icons
+  #upload: icons/.*
+  expiration: "90d"
+  
+- url: /robots.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+  expiration: "90d"
+  
+- url: /.*
+  script: main.app
+ 
+libraries:
+- name: django
+  version: "1.9"
+- name: webapp2
+  version: "2.5.1"
+- name: markupsafe
+  version: "0.15"
+- name: setuptools
+  version: "0.6c11"
+- name: jinja2
+  version: "2.6"
+- name: lxml
+  version: "2.3"

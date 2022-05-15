@@ -1,0 +1,56 @@
+cron:
+- description: Codzienna aktualizacja notowan
+  url: /update-notowania
+  schedule: every mon,tue,wed,thu,fri 19:36
+  timezone: Europe/Warsaw
+  target: updating
+# target: updates bylo dodane aby obslugiwal to skrypt backend-owy
+  
+#- description: Aktualizacja zdarzeniowa raportow   
+#  url: /update-raporty-recent
+#  schedule: every friday 15:07
+#  timezone: Europe/Warsaw
+
+- description: Aktualizacja przynaleznosci spolek do indeksow - raz na miesiac  
+  url: /update-indeksy
+  schedule: 1 of month 10:11
+#  target: updates
+  timezone: Europe/Warsaw
+
+#- description: Publikacja wpisu na blogu z wylistowaniem spolek ktore spelniaja kryteria ncav i ent  
+#  url: /update-blog
+#  schedule: every tuesday 14:03
+#  target: updates
+#  timezone: Europe/Warsaw
+
+- description: Aktualizacja przynaleznosci spolek do indeksow - raz na miesiac  
+  url: /update-indeksy-na-symbolach
+  schedule: 2 of month 10:11
+#  target: updates
+  timezone: Europe/Warsaw
+
+- description: aktualizacja info o dywidendach
+  url: /update-dywidendy
+  schedule: every friday 16:52
+  timezone: Europe/Warsaw
+#  target: updates
+  
+- description: aktualizacja numerow ISIN, segment, sektor, czy zagraniczna
+  url: /update-isin
+  schedule: every monday 08:52
+  timezone: Europe/Warsaw
+#  target: updates
+    
+#- description: aktualizacja raportow
+#  url: /update-raporty
+#  schedule: 4th,2nd wed of month 17:50
+#  timezone: Europe/Warsaw
+  
+#- description: aktualizacja tabeli do szybkiego liczenia wskaznikow zwiazanych z kursem - np. c/z i c/wk
+#  url: /update-raporty
+#  schedule: 1, 14 of month 17:50
+#  timezone: Europe/Warsaw
+  
+#- description: aktualizacja statystyk memcache.
+#  url: /mestat?update=1
+#  schedule: every 10 minutes
