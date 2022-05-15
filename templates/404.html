@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block reklamagoogle %}
+<!-- nic -->
+{% endblock %}
+
+{% block title %}
+  Akcjegrahama.pl - Nie znaleziono takiej strony - 404
+{% endblock %}
+
+{% block heading %}
+
+  
+{% endblock %}
+
+{% block content %}
+{% if error_message %}
+{{ error_message }}
+{% else %}
+  <p>Strona nie istnieje.</P>
+{% endif %}
+<p>
+  Żądana strona nie została odnaleziona. Zamiast tego zajrzyj na <a href="http://blog.akcjegrahama.pl">blog</a> albo skorzystaj z wyszukiwarki akcji:
+  	        <ul>
+	        <li><a href="/ncav">akcje o kapitalizacji poniżej wartości aktywów obrotowych netto ("<em>C/WK Grahama</em>")</a></li>
+	        <li><a href="/przedsiebiorczy-inwestor">akcje drugorzędne dla inwestora przedsiębiorczego ("<em>Enterprising Investor</em>")</a></li>
+	        <li><a href="/najprostsza-metoda-inwestowania">akcje zgodne z ostatnią i najprostszą metodą inwestowania, jaką wynalazł Graham</a></li>
+	        <li><a href="/akcje-gpw">ogólna wyszukiwarka akcji</a></li>
+	        </ul> 
+</P>
+
+{% endblock %}
+
+{% block reklamagoogle2 %}
+<!-- nic -->
+{% endblock %}
+

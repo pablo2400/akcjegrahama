@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block google_button %}
+{% endblock %}
+
+
+{% block reklamagoogle %}
+{% endblock %}
+{% block reklamagoogle2 %}
+{% endblock %}
+{% block userbox %}
+{% endblock %}
+{% block facebook %}
+ {% endblock %}
+{% block content %}
+
+
+<br><br>
+<div class="login-card">
+<h1>Logowanie</h1>
+
+{% if failed %}
+	<div id="errorBox">
+    <strong>Logowanie nie powiodło się!</strong> Sprawdź czy podałeś poprawne dane logowania i spróbuj ponownie. Jeśli problem będzie się powtarzał skontaktuj się z nami.
+</div>
+{% endif %}
+
+<form class="form" action= "/login" method="POST">
+	<input type="text" value="{{ username }}" name="username" placeholder="Nazwa użytkownika" maxlength="40"/>
+	<input type="password" name="password" placeholder="Hasło"/>
+	<input type="submit" name="login" class="login login-submit" value="Zaloguj się"/>
+	<input type="hidden" name="req_url" value="{{ req_url }}"/>
+</form>
+  <div class="login-help">
+<a href="/signup">Zarejestruj się</a>&nbsp;|&nbsp; 
+<a href="/forgot">Przypomnij hasło</a>
+</div>
+
+</div>
+
+
+
+
+
+{% endblock %}

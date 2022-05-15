@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block userbox %}
+{% endblock %}
+ {% block facebook %}
+ {% endblock %}
+
+{% block content %}
+<br><br>
+<div class="login-card">
+<h1>Zapomniane hasło</h1>
+<script type="text/javascript">
+function validateForm() {
+
+  var username = document.forms["forgot"]["username"].value;
+  //var emailRegex = /[^@\s]+@[^@\s]+\.[a-zA-Z0-9]+$/;
+  var usernameRegex = /^[a-zA-Z0-9]{3,40}$/;
+
+	if (username == null || username == "") {
+		document.forms["forgot"]["username"].focus() ;
+		document.getElementById("errorBox").innerHTML = "Wpisz nazwę użytkownika"; 
+	    return false;
+	} else if(!usernameRegex.test(username)) {
+		  document.forms["forgot"]["username"].focus() ;
+		  document.getElementById("errorBox").innerHTML = "Podaj poprawną nazwę użytkownika (składającą się z min. 3 liter i/lub cyfr).";
+		  return false;
+	}
+	
+	return true;
+}
+
+</script>
+{% if not_found %}
+    <strong>Nie znaleziono!</strong> Użytkownik o podanej nazwie nie istnieje.
+{% endif %} 
+
+<div id="errorBox"></div>
+<form name="forgot" onsubmit="return validateForm()" action="/forgot" method="POST">
+	<input type="text" value="{{ username }}" name="username" placeholder="Nazwa użytkownika"/>
+	<input type="submit" name="forgot" class="login login-submit" value="Wyślij link do nowego hasła"/>
+</form>
+</div>
+{% endblock %}

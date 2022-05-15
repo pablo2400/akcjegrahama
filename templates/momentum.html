@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% block content %}
+
+	
+	<p>
+	<!--
+	<a href="http://www.aaii.com/computerized-investing/article/graham-s-simplest-approach-to-selecting-stocks">
+	Wiadomo</a>, że--> 
+	Przez kilka ostatnich lat życia Benjamin Graham testował pewną bardzo prostą strategię inwestowania.
+	Polegała ona na mechanicznym wyszukiwaniu i kupowaniu akcji większej grupy spółek ("idealne minimum" określił jako 30 - <a href="http://blog.akcjegrahama.pl/2012/10/ile-spoek-najlepiej-miec-w-portfelu.html">zobacz dlaczego</a>) dla 
+	których wartość wskaźnika Z/C (odwrotność C/Z) stanowi dwukrotność oprocentowania obligacji korporacyjnych o najwyższym ratingu (AAA).
+	</P>
+	<p>Kliknij:	
+	<input class="filter" type='Button' value='' onclick='document.forms[0].reset();var ent = document.getElementsByName("ent");for(var i=0;i<ent.length;i++) {ent[i].selected = true;ent[i].parentNode.onchange()}'>
+	</p>
+	<p> 
+	Jako że w Polsce nie ma obowiązku nadawania	ratingu obligacjom (nie mówiąc już o tym że nie ma u nas obligacji o ratingu AAA), za substytut tego wskaźnika przyjąć można najlepsze dostępne oprocentowanie lokat.
+	
+	{% endblock %}
+{% block tabela %}
+	
+	<table class="main table-autosort table-autostripe table-autofilter table-stripeclass:alternate table-filtered-rowcount:t1filtercount table-rowcount:t1allcount" >
+	<colgroup>
+	<col width="90">
+	<col width="90" class="gr">
+	<col width="55" class="gr">
+	<col width="60">
+	<col width="60">
+	<col width="70">
+	<col width="65">
+	
+	
+	<col width="70">
+	<col width="65">
+	<col width="65">
+	<col width="65">
+	<col width="65">
+	<col width="60">
+	<col width="60">	
+	
+	</colgroup>
+	<thead>
+
+	<tr>
+	<th colspan="14" class="hd2" align="right">
+	<form action="#">
+	<input class="reset" type='Button' value='' onclick='document.forms[0].reset();Table.filter(this,null);'>
+	
+	</th>
+	</tr>
+    <tr>
+        <th class="filterable table-sortable:alphanumeric">Spółka</th>
+        <th class="filterable table-sortable:alphanumeric">W indeksach</th>
+        <th class="filterable table-sortable:alphanumeric" title="Ostatni raport">Ostat.<br>raport</th>
+        <th class="filterable table-sortable:numeric" title="Kurs zamknięcia po ostatniej sesji">Kurs</th>
+        <th class="filterable table-sortable:numeric" title="Pozycja = Kapitał*0.001/ATR(20)">Pozycja<br>ATR</th>
+        <th class="filterable table-sortable:numeric" title="Maksymalna dopuszczalna pozycja z punktu widzenia średniej płynności instrumentu">Pozycja<br>Wolumen</th>
+        
+        <th class="filterable table-sortable:numeric table-sorted-asc" >Rank</th>
+        <th class="filterable table-sortable:numeric" >C/WK</th>
+    	<th class="filterable table-sortable:numeric" >Ponad<br>SMA100</th>
+        <th class="filterable table-sortable:alphanumeric" >Zyski<br>za ost.<br>5 lat</th>
+        
+        <th class="filterable table-sortable:numeric" >Current<br>ratio</th>
+        <th class="filterable table-sortable:numeric" >Dług/<br>Kap.<br>obrotowy</th>
+        <th class="filterable table-sortable:numeric" >Kap.Wł /<br>Aktywa</th>
+        <th class="filterable table-sortable:numeric" >Piotroski<br>F-Score</th>
+        
+    </tr>
+         	<tr>
+              
+              <th class="hd2"><input name="filter" size="5" onkeyup="this.value=this.value.toUpperCase();Table.filter(this,this);"></th>          
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter" style="width:8em;">
+              
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return ~val.indexOf('WIG20') || ~val.indexOf('mWIG40');}">WIG20/40</option>
+                  <option value="function(val){return ~val.indexOf('WIG20') || ~val.indexOf('mWIG40') || ~val.indexOf('sWIG80') ;}">WIG20/40/80</option>
+                  
+			      <option value="function(){return true;}">----------</option>
+                  
+                  <option value="function(val){return ~val.indexOf('WIG20');}">WIG20</option>
+                  <option value="function(val){return ~val.indexOf('WIG30');}">WIG30</option>
+				  <option value="function(val){return ~val.indexOf('mWIG40');}">mWIG40</option>
+				  <option value="function(val){return ~val.indexOf('sWIG80');}">sWIG80</option>
+				  <option value="function(val){return ~val.indexOf('WIGdiv');}">WIGdiv</option>
+				  <option value="function(val){return ~val.indexOf('WIG');}">WIG</option>
+				  
+			<option value="function(val){return ~val.indexOf('WIG-Poland');}">WIG-Poland</option>
+			<option value="function(val){return ~val.indexOf('WIG-Ukrain');}">WIG-Ukrain</option>
+			<option value="function(val){return ~val.indexOf('WIG-BANKI');}">WIG-BANKI</option>
+			<option value="function(val){return ~val.indexOf('WIG-BUDOW');}">WIG-BUDOW</option>
+			<option value="function(val){return ~val.indexOf('WIG-CHEMIA');}">WIG-CHEMIA</option>
+			<option value="function(val){return ~val.indexOf('WIG-DEWEL');}">WIG-DEWEL</option>
+			<option value="function(val){return ~val.indexOf('WIG-ENERG');}">WIG-ENERG</option>
+			<option value="function(val){return ~val.indexOf('WIG-INFO');}">WIG-INFO</option>
+			<option value="function(val){return ~val.indexOf('WIG-MEDIA');}">WIG-MEDIA</option>
+			<option value="function(val){return ~val.indexOf('WIG-PALIWA');}">WIG-PALIWA</option>
+			<option value="function(val){return ~val.indexOf('WIG-SPOZYW');}">WIG-SPOZYW</option>
+			<option value="function(val){return ~val.indexOf('WIG-SUROWC');}">WIG-SUROWC</option>
+			<option value="function(val){return ~val.indexOf('WIG-TELKOM');}">WIG-TELKOM</option>
+			<option value="function(val){return ~val.indexOf('RESPECT');}">RESPECT</option>
+			<option value="function(val){return ~val.indexOf('InvestorMS');}">InvestorMS</option>
+                  </select></th>
+                                <th class="hd2">
+                                					<select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q1';}">Q1</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q2';}">Q2</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q3';}">Q3</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q4';}">Q4</option>
+                  
+                  </select>
+                                
+                                </th>
+                                <th class="hd2"></th>
+                                <th class="hd2"></th> <!--  średnia SMA 100 -->
+                                <th class="hd2">
+                                <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>=1000;}">&ge;1000</option>
+                  <option value="function(val){return parseFloat(val)>=1500;}">&ge;1500</option>
+				<option name ="ent" value="function(val){return parseFloat(val)>=2000;}">&ge;2000</option>
+                <option value="function(val){return parseFloat(val)>=2500;}">&ge;2500</option>
+                                
+                            </select>     </th> <!--  płynność -->
+                                
+
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=7;}">&#8804; 7</option>
+                  <option value="function(val){return parseFloat(val)<=7.5;}">&#8804; 7.5</option>
+                  <option value="function(val){return parseFloat(val)<=8;}">&#8804; 8</option>
+                  <option value="function(val){return parseFloat(val)<=8.5;}">&#8804; 8.5</option>
+                  <option value="function(val){return parseFloat(val)<=9;}">&le; 9</option>
+                  
+                  </select></th>
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=0.67;}">&le; &#8532;</option>
+                  <option value="function(val){return parseFloat(val)<=1;}">&le; 1</option>
+				  <option value="function(val){return parseFloat(val)<=1.2;}">&le; 1.2</option>
+                  
+                  </select></th>
+              
+
+              <th class="hd2">
+              <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>                  
+                  <option name ="ent" value="function(val){return val!='-';}">tak</option>                  
+                  </select>
+              </th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return val.indexOf('+++++') == 0;}">5</option>
+                  <option value="function(val){return val.indexOf('++++') == 0;}">4</option>
+                  <option value="function(val){return val.indexOf('+++') == 0;}">3</option>
+                  <option value="function(val){return val.indexOf('++') == 0;}">2</option>
+                  <option value="function(val){return val.indexOf('+') == 0;}">1</option>
+                  </select>
+              </th>
+
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}"  selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>=1.5;}">&ge; 1.5</option>
+                  </select></th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=1.1;}">&le; 1.1</option>
+                  </select>
+              
+              </th>
+              <th class="hd2"></th>
+				<th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>                  
+                  <option value="function(val){return parseFloat(val)>=8;}">&ge; 8</option>
+                  <option value="function(val){return parseFloat(val)>=7;}">&ge; 7</option>
+                  <option value="function(val){return parseFloat(val)>=6;}">&ge; 6</option>
+                  <option value="function(val){return parseFloat(val)>=5;}">&ge; 5</option>
+                  <option value="function(val){return parseFloat(val)>=4;}">&ge; 4</option>
+                  <option value="function(val){return parseFloat(val)>=3;}">&ge; 3</option>              
+                  </select></th>
+              </tr>
+            </form>  
+            </thead>
+            
+			<tfoot>
+			<tr>
+				<td colspan="14">Wybrane kryteria spełnia <span id="t1filtercount"></span>&nbsp;z <span id="t1allcount"></span>&nbsp;analizowanych spółek.</td>
+			</tr>
+			</tfoot>
+        <tbody align = "right">
+     {% if tabelka %}
+	 {% autoescape off %}
+	   {{ tabelka }}
+	 {% endautoescape %}
+	 {% else %}
+	   <p>Brak aktualnych danych.</p>
+	 {% endif %} 
+
+		</tbody>
+
+		
+		</table>
+		
+{% endblock %}
+

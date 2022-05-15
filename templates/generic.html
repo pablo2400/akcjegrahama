@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% block content %}
+
+	
+	<p>
+	Poniższa tabelka to prosty i szybki w użyciu skaner fundamentalny, który umożliwia wybór akcji spełniających dowolnie wybrane kryteria stosowane przez Benjamina Grahama.
+	<br><br> 
+	Możesz poustawiać kryteria tak jak w pozostałych strategiach 
+	(tj. <a href="/przedsiebiorczy-inwestor">"przedsiębiorczy inwestor"</a>, <a href="/ncav">"C/WK Grahama"</a>, 
+	<a href="/najprostsza-metoda-inwestowania">"najprostsza metoda"</a>) albo według własnych preferencji.
+	<br><br>
+	Pamiętaj aby dobrze <a href="http://blog.akcjegrahama.pl/2012/10/ile-spoek-najlepiej-miec-w-portfelu.html">zdywersyfikować</a> swój portfel akcji 
+	i poza akcjami zawsze posiadać także <a href="http://blog.akcjegrahama.pl/2012/02/czy-w-oparciu-o-ksiazke-grahama.html">gotówkę (lokaty) i/lub obligacje/fundusze obligacji</a>.     
+	   
+	</p>
+{% endblock %}
+{% block tabela %}
+	
+	<table class="main table-autosort table-autostripe table-autofilter table-stripeclass:alternate table-filtered-rowcount:t1filtercount table-rowcount:t1allcount" >
+
+	<colgroup>
+	<col width="90">
+	<col width="90" class="gr">
+	<col width="55" class="gr">
+	<col width="55">
+	<col width="70">
+	<col width="60">
+	<col width="70">
+	<col width="70">
+	<col width="70">
+	<col width="65">
+	<col width="65">
+	<col width="65">
+	<col width="60">
+	<col width="70">
+	<col width="65">
+	<col width="60">	
+	<col width="60">
+	</colgroup>
+	<thead>
+	<tr>
+	<th colspan="17" class="hd2" align="right">
+	<form action="#">
+	<input class="reset" type='Button' value='' onclick='document.forms[0].reset();Table.filter(this,null);'>
+	</th>
+	</tr>
+    <tr>
+        <th class="filterable table-sortable:alphanumeric">Spółka</th>
+        <th class="filterable table-sortable:alphanumeric">W indeksach</th>
+        <th class="filterable table-sortable:alphanumeric" title="Ostatni raport">Ostat.<br>raport</th>
+        <th class="filterable table-sortable:numeric" title="Kurs zamknięcia po ostatniej sesji">Kurs</th>
+        <th class="filterable table-sortable:numeric" title="Stosunek ceny do średnich zysków na akcję z trzech ostatnich raportów rocznych">Śr. C/Z<br>z 3 lat</th>
+        <th class="filterable table-sortable:numeric" >C/Z *<br>C/WK<br> &lt; 22,5</th>
+        <th class="filterable table-sortable:numeric" >C/WK Grahama</th>
+        <th class="filterable table-sortable:numeric" >C/Z</th>
+        <th class="filterable table-sortable:numeric" >C/WK</th>
+    	<th class="filterable table-sortable:numeric" >Bieżąca<br>dywi-<br>denda [%]</th>
+        <th class="filterable table-sortable:alphanumeric" >Zyski<br>za ost.<br>x lat</th>
+        <th class="filterable table-sortable:alphanumeric" >Zyski &gt; niż 5 lat temu</th>
+        <!-- accrual -->
+        <th class="filterable table-sortable:numeric" >Accrual ratio [%]</th>
+        <!-- accrual -->
+        <th class="filterable table-sortable:numeric" >Current<br>ratio</th>
+        <th class="filterable table-sortable:numeric" >Dług/<br>Kap.<br>obrotowy</th>
+        <th class="filterable table-sortable:numeric" >Kap.Wł /<br>Aktywa</th>
+        <th class="filterable table-sortable:numeric" >Piotroski<br>F-Score</th>        
+    </tr>
+	<tr>
+		<th class="hd2"><input name="filter" size="5" onkeyup="this.value=this.value.toUpperCase();Table.filter(this,this)"></th>
+        <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter" style="width:8em;">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  
+                  <option value="function(val){return ~val.indexOf('WIG20') || ~val.indexOf('mWIG40');}">WIG20/40</option>
+                  <option value="function(val){return ~val.indexOf('WIG20') || ~val.indexOf('mWIG40') || ~val.indexOf('sWIG80') ;}">WIG20/40/80</option>
+                  
+			      <option value="function(){return true;}">----------</option>
+                  
+                  <option value="function(val){return ~val.indexOf('WIG20');}">WIG20</option>
+                  <option value="function(val){return ~val.indexOf('WIG30');}">WIG30</option>
+				  <option value="function(val){return ~val.indexOf('mWIG40');}">mWIG40</option>
+				  <option value="function(val){return ~val.indexOf('sWIG80');}">sWIG80</option>
+				  <option value="function(val){return ~val.indexOf('WIGdiv');}">WIGdiv</option>
+				  <option value="function(val){return ~val.indexOf('WIG');}">WIG</option>
+			
+			<option value="function(val){return ~val.indexOf('WIG-Poland');}">WIG-Poland</option>
+			<option value="function(val){return ~val.indexOf('WIG-Ukrain');}">WIG-Ukrain</option>
+			<option value="function(val){return ~val.indexOf('WIG-BANKI');}">WIG-BANKI</option>
+			<option value="function(val){return ~val.indexOf('WIG-BUDOW');}">WIG-BUDOW</option>
+			<option value="function(val){return ~val.indexOf('WIG-CHEMIA');}">WIG-CHEMIA</option>
+			<option value="function(val){return ~val.indexOf('WIG-DEWEL');}">WIG-DEWEL</option>
+			<option value="function(val){return ~val.indexOf('WIG-ENERG');}">WIG-ENERG</option>
+			<option value="function(val){return ~val.indexOf('WIG-INFO');}">WIG-INFO</option>
+			<option value="function(val){return ~val.indexOf('WIG-MEDIA');}">WIG-MEDIA</option>
+			<option value="function(val){return ~val.indexOf('WIG-PALIWA');}">WIG-PALIWA</option>
+			<option value="function(val){return ~val.indexOf('WIG-SPOZYW');}">WIG-SPOZYW</option>
+			<option value="function(val){return ~val.indexOf('WIG-SUROWC');}">WIG-SUROWC</option>
+			<option value="function(val){return ~val.indexOf('WIG-TELKOM');}">WIG-TELKOM</option>
+			<option value="function(val){return ~val.indexOf('RESPECT');}">RESPECT</option>
+			<option value="function(val){return ~val.indexOf('InvestorMS');}">InvestorMS</option>
+                  </select></th>
+                                <th class="hd2">	
+					<select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q1';}">Q1</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q2';}">Q2</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q3';}">Q3</option>
+                  <option value="function(val){return val.substring(5, 7) == 'Q4';}">Q4</option>
+                  
+                  </select>
+                                </th>
+                                <th class="hd2"></th>
+                                
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>0;}">&gt; 0</option>
+					<option value="function(val){return parseFloat(val)<=7.0;}">&le; 7.0</option>                  <option value="function(val){return parseFloat(val)<=7.5;}">&le; 7.5</option>
+					<option value="function(val){return parseFloat(val)<=8.0;}">&le; 8.0</option><option value="function(val){return parseFloat(val)<=8.5;}">&le; 8.5</option>
+					 <option value="function(val){return parseFloat(val)<=9.0;}">&le; 9.0</option><option value="function(val){return parseFloat(val)<=10;}">&le; 10</option>
+					 <option value="function(val){return parseFloat(val)<=11;}">&le; 11</option><option value="function(val){return parseFloat(val)<=12;}">&le; 12</option>
+                  <option value="function(val){return parseFloat(val)<=13;}">&le; 13</option>
+                  <option value="function(val){return parseFloat(val)<=14;}">&le; 14</option>
+				 <option value="function(val){return parseFloat(val)<=15;}">&le; 15</option>
+              </select></th>
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=22.5;}">tak</option>
+                  </select></th>
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=0.67;}">&le; 2/3</option>
+                  <option value="function(val){return parseFloat(val)<=1.0;}">&le; 1.0</option>
+                  <option value="function(val){return parseFloat(val)<=1.5;}">&le; 1.5</option>
+                  </select></th>
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>0;}">&gt; 0</option>
+					<option value="function(val){return parseFloat(val)<=7.0;}">&le; 7.0</option>                  <option value="function(val){return parseFloat(val)<=7.5;}">&le; 7.5</option>
+					<option value="function(val){return parseFloat(val)<=8.0;}">&le; 8.0</option><option value="function(val){return parseFloat(val)<=8.5;}">&le; 8.5</option>
+					 <option value="function(val){return parseFloat(val)<=9.0;}">&le; 9.0</option><option value="function(val){return parseFloat(val)<=10;}">&le; 10</option>
+					 <option value="function(val){return parseFloat(val)<=11;}">&le; 11</option><option value="function(val){return parseFloat(val)<=12;}">&le; 12</option>
+                  <option value="function(val){return parseFloat(val)<=13;}">&le; 13</option>
+                  <option value="function(val){return parseFloat(val)<=14;}">&le; 14</option>
+				 <option value="function(val){return parseFloat(val)<=15;}">&le; 15</option>
+                  </select></th>
+              <th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=0.7;}">&le; 0.7</option>
+                  <option value="function(val){return parseFloat(val)<=1.0;}">&le; 1.0</option>
+                  <option value="function(val){return parseFloat(val)<=1.2;}">&le; 1.2</option>
+                  <option value="function(val){return parseFloat(val)<=1.5;}">&le; 1.5</option>
+                  </select></th>
+              
+
+              <th class="hd2">
+              <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return val!='';}">tak</option>                  
+                  <option value="function(val){return val>=3;}">&ge; 3</option>
+                  <option value="function(val){return val>=4;}">&ge; 4</option>
+                  <option value="function(val){return val>=5;}">&ge; 5</option>
+                  <option value="function(val){return val>=6;}">&ge; 6</option>
+                  <option value="function(val){return val>=7;}">&ge; 7</option>
+                  
+                  </select>
+              </th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return val.indexOf('+++++') == 0;}">5</option>
+                  <option value="function(val){return val.indexOf('++++') == 0;}">4</option>
+                  <option value="function(val){return val.indexOf('+++') == 0;}">3</option>
+                  <option value="function(val){return val.indexOf('++') == 0;}">2</option>
+                  <option value="function(val){return val.indexOf('+') == 0;}">1</option>
+           
+				  
+                  
+                  <!--<option value="function(val){return val=='';}">nie</option>-->
+                  </select>
+              </th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  
+                  <option value="function(val){return val=='tak';}">tak</option>
+                  <!--<option value="function(val){return val=='';}">nie</option>-->
+                  </select>
+              </th>
+
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=-5;}">&le; -5</option>
+                  <option value="function(val){return parseFloat(val)<0;}">&lt; 0</option>
+                  <option value="function(val){return parseFloat(val)<5;}">&lt; 5</option>
+                  <option value="function(val){return parseFloat(val)>=0;}">&ge; 0</option>
+                  <option value="function(val){return parseFloat(val)>5;}">&gt; 5</option>
+                  </select></th>
+
+
+
+
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  
+                  <option value="function(val){return parseFloat(val)>=2.0;}">&ge; 2.0</option>
+                  <option value="function(val){return parseFloat(val)>=1.5;}">&ge; 1.5</option>
+                  <option value="function(val){return parseFloat(val)>=1.4;}">&ge; 1.4</option>
+                  <option value="function(val){return parseFloat(val)>=1.3;}">&ge; 1.3</option>
+                  <option value="function(val){return parseFloat(val)>=1.2;}">&ge; 1.2</option>
+                  <option value="function(val){return parseFloat(val)>=1.1;}">&ge; 1.1</option>
+                  <option value="function(val){return parseFloat(val)>=1.0;}">&ge; 1.0</option>
+                  <option value="function(val){return parseFloat(val)<1.0;}">&lt; 1.0</option>
+                  </select></th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)<=1.1;}">&le; 1.1</option>
+                  </select>
+              
+              </th>
+              <th class="hd2">
+                  <select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>=0.5;}">&ge; &frac12;</option>
+                  </select>
+              </th>
+				<th class="hd2"><select onchange="Table.filter(this,this)" class="select-filter">
+                  <option value="function(){return true;}" selected="selected">*</option>
+                  <option value="function(val){return parseFloat(val)>=8;}">&ge; 8</option>
+                  <option value="function(val){return parseFloat(val)>=7;}">&ge; 7</option>
+                  <option value="function(val){return parseFloat(val)>=6;}">&ge; 6</option>
+                  <option value="function(val){return parseFloat(val)>=5;}">&ge; 5</option>
+                  <option value="function(val){return parseFloat(val)>=4;}">&ge; 4</option>
+                  <option value="function(val){return parseFloat(val)>=3;}">&ge; 3</option>
+                  <option value="function(val){return parseFloat(val)<3;}">&lt; 3</option>
+                  </select></th>
+              
+              </tr>
+              </form>           
+            </thead>
+            <tfoot>
+			<tr>
+				<td colspan="17">Wybrane kryteria spełnia <span id="t1filtercount"></span>&nbsp;z <span id="t1allcount"></span>&nbsp;analizowanych spółek.</td>
+			</tr>
+			</tfoot>
+        <tbody align = "right">
+     {% if tabelka %}
+	 {% autoescape off %}
+	   {{ tabelka }}
+	 {% endautoescape %}
+	 {% else %}
+	   <p>Brak aktualnych danych.</p>
+	 {% endif %} 
+
+		</tbody>
+		</table>
+		
+{% endblock %}		
+		
+
+

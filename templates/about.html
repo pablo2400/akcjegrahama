@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+<p>
+<img src="/static/images/bg.jpg"/ align="left" style="padding: 5px 15px 5px 5px;">
+Benjamin Graham – nauczyciel i mentor Warrena Buffeta - uważał, iż inteligentny inwestor może konsekwentnie osiągać ponadprzeciętne 
+stopy zwrotu z inwestycji w akcje i obligacje. W swojej klasycznej książce „Inteligentny Inwestor”, Graham przedstawił zbiór wskazówek 
+które składają się na strategię inwestycyjną którą można nazwać potocznie inwestowaniem w wartość. Jej podstawą jest założenie iż giełdowa 
+cena obligacji czy akcji danej spółki (jak i cały rynek) cyklicznie waha się od poziomu odzwierciedlającego nieuzasadniony pesymizm do 
+poziomu odpowiadającemu przesadnemu optymizmowi czy nawet euforii. Dla Grahama, inteligentny inwestor to realista który kupuje 
+od pesymistów i sprzedaje optymistom. Akcje kupione po cenie znacząco niższej (czyli z dużym marginesem bezpieczeństwa - idee fixe Graham’a) 
+od rzeczywistej wartości reprezentowanej przez nie części dochodowego biznesu sprzedaje dopiero wtedy, gdy (prędzej czy później) 
+wahadło wychyli się w drugą stronę i ich cena powróci do średniego poziomu. 
+</p>
+
+<p>
+	Czy to działa? W swojej książce Graham, na podstawie własnych doświadczeń, udowadnia że tak. Ponadto, Amerykańskie Stowarzyszenie 
+	Inwestorów Indywidualnych (AAII) śledzi na bieżąco wyniki portfeli akcji dobranych według kryteriów Grahama - sugerowanch dla
+	 <a href="http://www.aaii.com/stock-screens/screendata/GrahamDINon"> inwestorów defensywnych</a> (Defensive Investor) jak i 
+	 <a href="http://www.aaii.com/stock-screens/screendata/GrahamEI">inwestorów aktywnych</a> (Enterprising Investor). 
+	<a href="http://www.aaii.com/stock-screens">Stopy zwrotu</a> osiągnięte za ostatnie 3, 5, 10 lat, plasują strategię Grahama 
+	w czołówce najlepszych strategii wyboru akcji monitorowanych przez AAII. Potencjalną skuteczność strategii dla 
+	inwestorów aktywnych (Enterprising Investor) w warunkach polskich badała redakcja dziennika „Parkiet” – zachęcam do 
+	<a href="http://www.parkiet.com/artykul/982293.html">zapoznania się z artykułem</a>. 
+	Przeprowadzona na potrzeby arytkułu symulacja wykazała iż średnia roczna składana stopa zwrotu w latach 2006-2010 
+	wynosiłaby ponad 25%, podczas gdy WIG zyskał w tym okresie średnio 4,9% rocznie. 
+
+</p>
+<p>
+Akcje spółek wybieranych metodą Enterprising Investor powinny spełniać poniższe kryteria (na podstawie rozdziału 15 polskiego wydania "Inteligentnego Inwestora"):
+<ol>
+<li><strong>Niska cena w stosunku do ostatnich zysków</strong> - w ramach wstępnej selekcji, spośród wszystkich walorów odsiewamy 10%-20% tych o najniższym współczynniku C/Z - dodatnim, ale nieprzekraczającym 9.</li>
+<li><strong>Dobra kondycja finansowa</strong> - wskaźnik płynności bieżącej (ang. current ratio) na poziomie co najmniej 1.5, oraz całkowite zadłużenie nie większe niż 110% wartości kapitału obrotowego netto – dla spółek przemysłowych (kryterium płynności nie należy stosować w tej postaci dla firm użyteczności publicznej, czyli np. dostawców gazu, prądu, ciepła)</li>
+<li><strong>Stabilność dochodów</strong> - zyski (brak straty) za ostatnie 5 lat</li>
+<li><strong>Bieżąca dywidenda</strong> – wypłacona dywidenda za ubiegły rok</li>
+<li><strong>Wzrost dochodów</strong> - zysk za ostatni rok większy niż zysk 5 lat temu</li>
+<li><strong>Niska cena w stosunku do wartości</strong> - C/WK mniejsze od 1.2</li>
+</ol>
+</P>
+<p>
+Aby wyszukać akcje spełniające powyższe kryteria, skorzystaj z <a href="/">tabelki.</a>  
+</p>
+<p>
+Trzeba w tym miejscu podkreślić, że sam wybór akcji nie decyduje jeszcze o sukcesie i nie jest ani jedynym ani nawet najważniejszym warunkiem udanej inwestycji.
+Ponadto, wyniki historyczne takiej czy innej strategii inwestycyjnej (jakkolwiek zachęcająco mogą wyglądać) nie koniecznie muszą powtórzyć się w przyszłości. 
+Informacje przedstawiane w ramach niniejszego portalu nie stanowią rekomendacji inwestycyjnej ani zachęty do kupna takich czy innych walorów. 
+Informacji tych można używać jedynie w połączeniu z własną oceną i na osobiste ryzyko.
+Dane wykorzystywane w tym serwisie pochodzą z darmowych i ogólnodostępnych źródeł, przez co - pomimo dołożenia wszelkich starań - nie ma gwarancji że są one w 100% poprawne i/lub kompletne.
+Dlatego przed podjęciem decyzji inwestycyjnej należy dokonać dodatkowej weryfikacji wskaźników, najlepiej bezpośrednio w oparciu o raporty finansowe danej spółki. 
+</p>
+<p>
+Serwis jest prowadzony hobbistycznie i utrzymywany jest ze środków własnych autora.   
+</p>
+<p>Wszelkie pytania i sugestie <a href="/contact">mile widziane</a>.</p>
+
+</div>
+
+
+ 
+{% endblock %}

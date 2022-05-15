@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+<h3>Jak to działa:</h3><ul>
+<li>Notowania są aktualizowane raz dziennie, po zamknięciu sesji.
+<li>Pozostałe dane (o dywidendach, aktywach, przychodach, itp) są aktualizowane okresowo, w miarę dostępności aktualizacji.
+<li>Współczynniki C/Z oraz C/WK są obliczane na podstawie danych za ostatnie cztery kwartały. 
+<li>Dane spółek o ujemnym wskaźniku C/Z lub C/WK  nie są wyświetlane. 
+<li>Powyższe dwa założenia powodują, że kryterium braku strat w ostatnich 5 raportach rocznych jest uzupełnione dodatkowo o założenie o braku straty za ostatnie 4 kwartały łącznie. 
+<li>Piotroski F-Score obliczany jest na podstawie ostatniego i przedostatniego opublikowanego raportu rocznego. Należy mieć świadomość, że im bliżej opublikowania nowego raportu rocznego, tym bardziej ten wskaźnik jest nieaktualny.
+<li>Dane finansowe spółek zagranicznych podawane w innych walutach niż PLN przeliczane są w oparciu o kalkulator walutowy Google wg kursu z dnia ostatniej aktualizacji notowań akcji.  
+</ul>
+</p>
+<p>
+<h3>Obecne ograniczenia:</h3>
+<ul>
+<li>Raporty części spółek nie są ładowane lub tylko częściowo (głównie z branży finansowej oraz spółek dla których źródła danych są niepełne - np. dla części spółek zagranicznych). 
+<br>Tam gdzie dane są niepełne, nie jest wyliczany Piotroski F-Score.  
+
+</ul>
+</p>
+<p>
+<h3>Plany rozwoju:</h3>
+<ul>
+ 
+<li>Perspektywa bliższa: usunięcie wyżej wymienionych ograniczeń, usprawnienia w strukturze strony, uzupełnienie kryteriów płynnosciowych dla spółek finansowych
+<li>Perspektywa dalsza: wprowadzenie dodatkowych testów - np. wyszukiwanie firm użyteczności publicznej, selekcja akcji dla inwestora defensywnego, selekcja NCAV; dodanie kilku artykułów lub bloga 
+</ul>
+</p>
+<p>Wszelkie pytania i sugestie <a href="/contact">mile widziane</a>.</p>
+ 
+{% endblock %}

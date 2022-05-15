@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Zarejestruj się na Akcjegrahama{% endblock %}
+{% block userbox %}
+{% endblock %}
+{% block facebook %}
+ {% endblock %}
+
+
+{% block content %}
+<br><br>
+<div class="login-card">
+<h1>Dołącz do Akcjegrahama już dziś!</h1>
+
+<script type="text/javascript">
+function validateForm() {
+
+  var emailRegex = /[^@\s]+@[^@\s]+\.[a-zA-Z0-9]+$/;
+  var usernameRegex = /^[a-zA-Z0-9]{3,40}$/;
+  var username = document.forms["signup"]["username"].value,
+  email = document.forms["signup"]["email"].value,
+  password = document.forms["signup"]["password"].value,
+  password2 = document.forms["signup"]["password2"].value;
+ 
+	if (username == null || username == "") {
+		document.forms["signup"]["username"].focus() ;
+		document.getElementById("errorBox").innerHTML = "Wpisz nazwę użytkownika"; 
+	    return false;
+	} else if(!usernameRegex.test(username)) {
+		  document.forms["signup"]["username"].focus() ;
+		  document.getElementById("errorBox").innerHTML = "Nazwa użytkownika musi składać się z min. 3 i maks. 40 liter i/lub cyfr";
+		  return false;
+	}
+	if (email == null || email == "") {
+		document.forms["signup"]["email"].focus() ;
+		document.getElementById("errorBox").innerHTML = "Wpisz adres email"; 
+	    return false;
+	} else if(!emailRegex.test(email)) {
+		  document.forms["signup"]["email"].focus() ;
+		  document.getElementById("errorBox").innerHTML = "Wpisz prawidłowy adres email";
+		  return false;
+	}
+	if (password == null || password == "" || password.length<6 ) {
+		document.forms["signup"]["password"].focus() ;
+		document.getElementById("errorBox").innerHTML = "Hasło musi składać się z minimum 6 znaków!"; 
+	    return false;
+	}
+	//if (password != password2) {
+	//	document.forms["signup"]["password"].focus() ;
+	//	document.getElementById("errorBox").innerHTML = "Podane hasła różnią się"; 
+	//   return false;
+	//}
+	
+	//if (terms = document.forms["signup"]["terms"].checked == false) {
+	//	document.forms["signup"]["terms"].focus() ;
+	//	document.getElementById("errorBox").innerHTML = "Akceptacja regulaminu i polityki prywatności jest obowiązkowa"; 
+	//   return false;
+	//}
+	
+	return true;
+	
+}
+</script>
+
+<form onsubmit="return validateForm()" name="signup" action="/signup" method="POST">
+<div id="errorBox">{{error_msg}}</div>
+<input type="text" name="username" placeholder="Nazwa użytkownika" maxlength="40"
+{% if username %} value="{{username}}" {% endif %}
+ />
+<input type="text" name="email" placeholder="Email" maxlength="254"
+
+{% if email %} value="{{email}}" {% endif %}
+/>
+<input type="password" name="password" placeholder="Hasło" maxlength="40"
+
+{% if password %} value="{{password}}" {% endif %}
+/>
+<!--
+<input type="password" name="password2" placeholder="Powtórz hasło" maxlength="40"/>
+-->
+<input type="submit" name="login" class="login login-submit" value="Zarejestruj się" />
+<input type="hidden" name="signup" value="1" />
+
+</form>
+  <div class="login-help" style="text-align:left;">
+
+Rejestrując się, wyrażasz zgodę na <a href="/t/regulamin">regulamin</a> i <a href="/t/politykaprywatnosci">politykę prywatności</a>
+, w tym na zasady wykorzystania plików <a href="/t/politykaprywatnosci#cookies">cookie</a>. Przed rejestracją zapoznaj się z <a href="/t/zastrzezenia">zastrzeżeniami</a>.
+
+
+  <!--
+<a href="/login">Zaloguj się</a>&nbsp;|&nbsp; 
+<a href="/forgot">Przypomnij hasło</a>
+  -->
+</div>
+</div>
+{% endblock %}

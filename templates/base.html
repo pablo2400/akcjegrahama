@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta HTTP-EQUIV="Content-Language" Content="pl">
+    {%block noindex %}{% endblock %}
+    <title>{% block title %}Akcje Grahama{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="/css/styles.css" media="all"/>
+	<link rel="stylesheet" href="/css/drop-basic.min.css"/>
+	<script type="text/javascript" src="/javascript/table-long.js"></script>
+	<script type="text/javascript" src="/javascript/drop.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25844063-1']);
+  _gaq.push(['_setDomainName', 'akcjegrahama.pl']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
+
+{% block google_button %}
+{% endblock %}
+	</head>
+	<body>
+
+  <div id="container">
+  
+  	<div id="top">
+  	
+  	<nav class="nav-wrap-navbar nav-collapse">
+	  <div class="title">
+  	  	<span style="color: white"><a href="/" style="color: white">AKCJE GRAHAMA</a></span>
+  	  </div>
+	  <div class="menu">
+	  	<nav class="nav-wrap-navbar nav-collapse">
+		<ul class="nav-navbar">
+        {% if user %}
+		
+            <li style="color: orange;">Witaj {{ user.name }}!</li>            
+            <li class="dropdown-basic" data-dropdown>
+                <a href="/logout">
+                    Konto <span class="dropdown-show">+</span><span class="dropdown-hide">-</span>
+                </a>
+                <div class="dropdown-menu-basic dropdown-right" data-dropdown-menu>
+                    <ul>                    	                   
+                        <li><a href="/logout" class="btn">Wyloguj się</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+			<li class="dropdown-basic" data-dropdown>
+                <a href="/akcje-gpw">
+                    Filtry <span class="dropdown-show">+</span><span class="dropdown-hide">-</span>
+                </a>
+                <div class="dropdown-menu-basic dropdown-right" data-dropdown-menu>
+                    <ul>                    	                   
+				        <li><a href="/ncav">Niskie C/WK Grahama</a></li>
+				        <li>&nbsp;</li>
+				        <li><a href="/przedsiebiorczy-inwestor">Przedsiębiorczy Inwestor</a></li>
+				        <li>&nbsp;</li>
+				        <li><a href="/najprostsza-metoda-inwestowania">Najprostsza Metoda</a></li>
+				        <li>&nbsp;</li>
+				        <li><a href="/akcje-gpw">Wyszukiwarka ogólna</a></li>
+				        <li>&nbsp;</li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li><a target="_blank" href="http://www.money.pl/portfel/publiczne_informacje/portfel,informacje,259920.html">
+	  	   Portfel</a></li>
+            <li><a target="_blank" href="http://blog.akcjegrahama.pl">Blog</a></li>
+        </ul>
+        </nav>
+        	  	  	
+	  </div>
+	  </nav>
+	</div>
+	<div id="content">
+	      {% block reklamagoogle %}
+
+{% if 0 %}
+      <div style="padding: 1em; float:left;">      
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-4272974969240812";
+			/* small_rect */
+			google_ad_slot = "4179632574";
+			google_ad_width = 180;
+			google_ad_height = 150;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>	
+	 </div>
+{% endif %}
+      {% endblock %}
+      {% block content %}
+	 {% if content %}
+	 {% autoescape off %}
+	   {{ content }}
+	 {% endautoescape %}
+	 {% else %}
+	   <p>This page does not yet have any content.</p>
+	 {% endif %} 
+	 
+      {% endblock %}
+      {% block reklamagoogle2 %}
+      {% if 0 %}
+      <div style="margin-bottom:1em;">
+      	 <script type="text/javascript"><!--
+google_ad_client = "ca-pub-4272974969240812";
+/* baner */
+google_ad_slot = "1564243378";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+	           </div>
+	           {% endif %}
+	                 {% endblock %}
+    </div>
+	<div id="rightnav">
+	     {% block facebook %}
+	     <!--
+	<div class="fb-like-box" data-href="http://www.facebook.com/pages/akcjegrahamapl/282343441796260" data-width="300" data-show-faces="false" data-stream="false" data-header="true"></div>
+      -->
+      <div class="fbopak">
+      <div class="fb-page" data-href="https://www.facebook.com/akcjegrahamapl-282343441796260" data-width="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
+      </div>
+      {% endblock %}
+	
+	  {% block userbox %}
+	  			    {% if not user %}
+					<div id="DIV_1">
+						<form action="https://{{host}}/login" method="post" id="FORM_2">
+							<div id="DIV_3">
+								<input type="text" id="INPUT_4" name="username" placeholder="Nazwa użytkownika" />
+							</div>
+							<div id="DIV_9">
+								<input type="password" id="INPUT_10" name="password" placeholder="Hasło" />
+							</div>
+							<div id="DIV_99">											 
+								<input type="submit" class="login-submit-2 login" value="Zaloguj się"/>
+							</div>
+							
+							<div id="DIV_13">
+								 <!--
+								<label id="LABEL_14">
+									<input type="checkbox" value="1" name="remember_me" checked="checked" id="INPUT_15" /> <span id="SPAN_16">Zapamiętaj mnie</span>
+								</label>
+								<span id="SPAN_17">·</span> 
+								--> 
+								<a href="/forgot" class="login-help">Nie pamiętasz hasła?</a>
+							</div>
+							<input type="hidden" name="req_url" value="/"/>
+						</form>
+					</div>
+					
+					
+<div id="DIV_1111">
+  <h2 id="H2_SIG"><strong>Jesteś tu nowy?</strong> Zarejestruj się</h2>
+
+  <form action="https://{{host}}/signup" id="FORM_2" method="POST">
+
+    <div id="DIV_33">
+      <input id="INPUT_4" autocomplete="off" name="username" maxlength="40" placeholder="Nazwa użytkownika" type="text">
+    </div>
+    <div id="DIV_33">
+      <input id="INPUT_4" autocomplete="off" name="email" placeholder="Email" type="text">
+    </div>
+    <div id="DIV_33">
+      <input id="INPUT_4" name="password" placeholder="Hasło" type="password">
+    </div>
+
+    <input type="submit" class="login-submit-3 login" style="float:right" value="Zarejestruj się na Akcjegrahama"/>
+    <input type="hidden" name="signup" value="0">  
+  </form>
+</div>
+					
+{% endif %}
+
+	  
+
+	  
+
+	  {% endblock %}
+  	  
+ 	  {% block podfb %}
+ 	  <!--
+ 	  <div style="padding-top: 1em;">
+ 	  <script type="text/javascript" id="AdTaily_Widget" src="http://static.adtaily.pl/widget.js#IC6Milp6RJjdqbF"></script>
+<noscript><a href="http://www.adtaily.pl">Reklama w internecie</a></noscript>
+ 	  </div>
+ 	  -->
+ 	  
+ 	  {% endblock %}
+
+   	</div>
+   	<div id="content">
+   	
+   	{% block tabela %}   	
+   	{% endblock %}   	
+   	<br> 	
+   	</div>
+
+
+	<div id="footer">
+		<div style="float: left">
+
+	    	<div style="float: left; padding-right: 25px;">
+	    		<strong>Akcjegrahama</strong><br/>
+	    		<a href="http://blog.akcjegrahama.pl/p/o-stronie_04.html">O stronie</a><br/>
+	    		<a href="http://blog.akcjegrahama.pl/p/jak-to-dziaa.html">Jak to działa</a><br/>
+	    		<br/>
+	    	</div>
+	    	<div style="float: left; padding-right: 25px;">
+	    		<strong>Aspekty Prawne</strong><br/>
+	    		
+	    		
+	    		<a href="/t/regulamin">Regulamin</a><br/>
+	    		<a href="/t/politykaprywatnosci">Polityka Prywatności</a><br/>
+	    		
+	    		
+	    		<a href="/t/zastrzezenia">Zastrzeżenia</a><br/>
+	    	</div>
+	    	<div style="float: left;  padding-right: 25px;">
+	    		<strong>Pomoc</strong><br/>
+	    		<a href="/t/kontakt">Kontakt</a>
+	    	</div>
+		</div>
+    	<div style="float: right">(c) 2015 akcjegrahama.pl</div>		
+    </div> 
+
+
+   </div>
+   
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.5&appId=774676952577409";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+   
+   <script>
+    drop.init();
+</script>
+	</body>
+</html>
