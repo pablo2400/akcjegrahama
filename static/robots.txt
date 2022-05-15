@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /t/politykaprywatnosci
+
+User-agent: *
+Disallow: /t/regulamin
+
+User-agent: *
+Disallow: /t/kontakt

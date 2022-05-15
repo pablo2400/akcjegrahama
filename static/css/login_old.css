@@ -1,0 +1,339 @@
+#mainbar-full {
+	width: 630px;
+}
+
+#mainbar .subheader.search-header
+{
+	background: none;
+	background-image: none;
+	border-bottom: none;
+	height: auto;
+	margin-bottom: 0;
+	width: auto;
+}
+
+.post-text h1,.post-text h2,.post-text h3,.post-text h4,.post-text h5,.post-text h6
+{
+	word-wrap: break-word;
+}
+
+#mainbar-full h2.title
+{
+	margin: 20px 0;
+}
+
+#mainbar-full > div {
+}
+
+#tabs
+{
+	float: right;
+	font-weight: normal;
+}
+#tabs a
+{
+	background: inherit;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #ccc;
+	color: #777;
+	display: block;
+	float: left;
+	font-size: 90%;
+	height: 24px;
+	line-height: 20px;
+	margin: 9px 8px 0 0;
+	padding: 0 11px 0 11px;
+	text-decoration: none;
+}
+#tabs a:hover
+{
+	background: #fff;
+	border: 1px solid #ccc;
+	border-bottom-color: #fff;
+}
+#tabs a.youarehere
+{
+	background: #fff;
+	border: 1px solid #ccc;
+	border-bottom-color: #fff;
+	color: #000;
+	font-size: 120%;
+	height: 30px;
+	line-height: 28px;
+	margin-top: 3px;
+	padding: 0 11px 0 11px;
+}
+
+.about-page .new-about-content-page .subheader
+{
+	background-color: transparent !important;
+	background-image: none !important;
+	border-bottom: none;
+}
+
+.login-page
+{
+	min-height: 620px;
+}
+.login-page .noscript-notice
+{
+	color: #800000;
+}
+.login-page #openid_input_area
+{
+	clear: both;
+	display: none;
+	padding-top: 10px;
+}
+.login-page #openid_provider_label
+{
+	margin-bottom: 0;
+}
+.login-page #openid_username
+{
+	margin-right: 5px;
+}
+.login-page #openid_highlight
+{
+	background-color: #fffcc9;
+	float: left;
+	padding: 3px;
+}
+.login-page #show-more-options
+{
+	margin-top: 15px;
+}
+.login-page #show-more-options a
+{
+	background: #ccc url('https://cdn.sstatic.net/Img/openid/openid-logos.png?v=9');
+}
+.login-page #more-openid-options
+{
+	margin-top: 15px;
+	overflow: auto;
+}
+.login-page #more-openid-options a.openid_highlight
+{
+	background-color: #fff;
+	border: 2px solid #999;
+	padding: 0;
+}
+.login-page .openid_small_btn
+{
+	border: 2px solid #ddd;
+	border-bottom: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	float: left;
+	height: 24px;
+	margin: 3px;
+	width: 24px;
+}
+.login-page .openid_small_btn:hover
+{
+	border: 2px solid #999;
+	margin: 3px;
+}
+.login-page #openid-url-input-area,.login-page #openid-url-input-area input
+{
+	margin-top: 10px;
+}
+.login-page #openid-url-input
+{
+	margin-bottom: 30px;
+}
+.login-page .large
+{
+	font-size: 140%;
+}
+.login-page #forgot-password
+{
+	margin-left: 285px;
+	position: absolute;
+}
+.login-page #se-login
+{
+	height: auto;
+}
+.login-page #se-login .form-bottom
+{
+	cursor: default;
+}
+.login-page #se-login .form-bottom>div>input
+{
+	width: 250px;
+}
+.login-page #se-login .form-bottom>div>input[type=text]
+{
+	border: 2px inset;
+	font-size: 100%;
+	line-height: normal;
+	padding: 3px;
+}
+.login-page #se-login div.form-submit>input
+{
+	width: auto;
+}
+.logins-popup
+{
+	border: solid 10px #ccc;
+	text-align: left;
+	width: 690px;
+}
+.logins-popup .logins
+{
+	width: 100%;
+}
+.logins-popup .logins th
+{
+	font-weight: bold;
+	padding-top: 15px !important;
+}
+.logins-popup .logins tr.note
+{
+	border-bottom: none;
+	color: #888;
+	padding-bottom: 5px;
+}
+.logins-popup .logins tr.note td
+{
+	color: #888;
+	font-size: 90%;
+}
+.logins-popup .logins td,.logins-popup .logins th
+{
+	padding: 4px 0;
+}
+.logins-popup .logins td.icon
+{
+	height: 24px;
+	padding: 0;
+	width: 24px;
+}
+.logins-popup .logins td.icon .openid-icon
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+.logins-popup .remove-login-cell
+{
+	text-align: right;
+}
+.logins-popup .login-section-header td
+{
+	padding-bottom: 2px;
+	padding-top: 15px;
+}
+
+.icon-stackexchange
+{
+	background-position: -27px -352px;
+}
+.icon-google
+{
+	background-position: -1px -300px;
+}
+.icon-facebook
+{
+	background-position: -27px -378px;
+}
+.icon-myopenid
+{
+	background-position: -27px -326px;
+}
+.icon-yahoo
+{
+	background-position: -27px -300px;
+}
+.icon-aol
+{
+	background-position: -27px -249px;
+}
+.icon-claimid
+{
+	background-position: -1px -326px;
+}
+.icon-livejournal
+{
+	background-position: -1px -352px;
+}
+.icon-wordpress
+{
+	background-position: -1px -404px;
+}
+.icon-blogger
+{
+	background-position: -1px -249px;
+}
+.icon-verisign
+{
+	background-position: -1px -378px;
+}
+.icon-steam
+{
+	background-position: -1px -430px;
+}
+.icon-edx
+{
+	background-position: -52px -430px;
+}
+.icon-launchpad
+{
+	background-position: -1px -1px;
+}
+.icon-openid
+{
+	background-position: -27px -404px;
+}
+
+
+.preferred-login
+{
+	background: #f9f9f9;
+	border: 1px solid #d4d4d4;
+	box-shadow: -1px 1px #f2f2f2;
+	color: #888;
+	cursor: pointer;
+	height: 16px;
+	margin-bottom: 15px;
+	padding: 7px;
+	width: 258px;
+}
+.preferred-login p>span
+{
+	vertical-align: top;
+}
+.preferred-login .icon
+{
+	background-image: url('/static/icons/new-login-sprite.png');
+	display: inline-block;
+	height: 16px;
+	margin-right: 12px;
+	width: 16px;
+}
+.preferred-login.google-login .icon
+{
+	background-position: 0 0;
+}
+.preferred-login.facebook-login .icon
+{
+	background-position: -19px 0;
+}
+.preferred-login.stackexchange-login .icon
+{
+	background-position: -38px 0;
+}
+
+.ask-page .privacy-policy-agreement,.question-page .privacy-policy-agreement
+{
+	margin-top: 15px;
+}
+
+.privacy-policy-agreement
+{
+	font-style: italic;
+}
+.newsletter-popup .privacy-policy-agreement
+{
+	font-size: 90%;
+	margin-top: 15px;
+}
